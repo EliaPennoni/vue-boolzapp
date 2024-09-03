@@ -9,3 +9,143 @@ body{
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* main */
+
+.back-ground{
+    width: 1200px;
+    height: 100vh;
+
+}
+
+.container{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 80%;
+    height: 90%;
+    display: flex;
+}
+
+/* left side */
+.left-side{
+    width: 35%;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.left.top{
+    position: sticky;
+}
+
+.profile{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.user-picture{
+    display: flex;
+    align-items: center;
+}
+.profile-picture{
+    width: 60px;
+    height: 100%;
+    object-fit: cover;
+    padding: 5px;
+    border-radius: 100px;
+}
+.alert-notifications{
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    background-color: aqua;
+}
+
+.search-user {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+}
+
+.search-user > button {
+    margin-right: 5px;
+}
+
+.search-user > input {
+    width: 100%;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+.user-icon > i {
+    margin-left: 10px;
+}
+
+.left-bottom-contacts{
+    overflow:auto;
+}
+
+/* right-side */
+.right-side{
+    width: 65%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.chat-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    position: sticky;
+    z-index: 1;
+}
+
+.chat-profile-picture{
+    display:flex;
+    align-items: center;
+    
+}
+
+.avatar{
+    width: 60px;
+    height: 100%;
+    object-fit: cover;
+    padding: 5px;
+    border-radius: 100px;
+}
+
+.chat-tools{
+    display: flex;
+    align-items: center;
+}
+
+.chat-tools > i {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.chat{
+    width: 100%;
+    height: 100%;
+    background-image:url(../img/mine.jpg);
+}
+
+.chat-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-footer input{
+    width: 100%;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+.chat-footer i{
+    margin-left: 5px;
+    margin-right: 5px;
+}

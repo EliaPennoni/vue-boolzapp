@@ -5,12 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
 <body>
-    <div id="app">
-       
+    <div id="app" class="back-ground">
+        <div class="container">
+            <div class="left-side">
+                <div class="left-top">
+                    <div class="profile">
+                        <div class="user-picture">
+                            <img src="./img/219186053_10222321436158285_8652781936297959677_n.jpg" alt=""
+                                class="profile-picture">
+                            <a href="" class="user-name">Elia</a>
+                        </div>
+                        <div class="user-icon">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="alert-notifications">
+                        <div class="div">
+                            <i class="fa-solid fa-bell-slash fa-2x"></i>
+                        </div>
+                        <div class="div">
+                            <h6>Ricevi notifiche di nuovi messaggi</h6>
+                            <a href="">attiva notifiche desktop</a>
+                        </div>
+                    </div>
+                    <div class="search-user">
+                        <button>cerca</button>
+                        <input type="text" name="" id="" placeholder="cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <div class="left-bottom-contacts" v-for="(contact, index) in contacts" :key="index">
+                    <ul>
+                        <li>
+                            <div>
+                                <img :src="contact.avatar" alt="" class="avatar">
+                                {{ contact.name }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- lato destro -->
+            <div class="right-side">
+                <div class="chat-header">
+                    <div class="chat-profile-picture">
+                        <div class="img-profile-pic">
+                            <img src="./img/avatar_1.jpg" alt="" class="avatar">
+                        </div>
+                        <div class="name">nome</div>
+                    </div>
+                    <div class="chat-tools">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <div class="chat">
+
+                </div>
+                <div class="chat-footer">
+                    <a href=""><i class="fa-regular fa-face-smile"></i></a>
+                    <input type="text" placeholder="scrivi un messaggio">
+                    <a href=""><i class="fa-solid fa-microphone"></i></a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
