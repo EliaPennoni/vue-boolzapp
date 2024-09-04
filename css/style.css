@@ -68,6 +68,11 @@ body {
     align-items: center;
 }
 
+.user-picture a {
+    text-decoration: none;
+    color: black;
+}
+
 .profile-picture {
     width: 60px;
     height: 100%;
@@ -126,6 +131,8 @@ body {
     width: 65%;
     height: 100%;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .chat-header {
@@ -143,6 +150,10 @@ body {
     display: flex;
     align-items: center;
 
+}
+
+.name{
+    font-weight: bold;
 }
 
 .avatar {
@@ -194,17 +205,17 @@ body {
     flex-direction: column;
 }
 
-.single-message-container {
+.chat-messages {
     display: flex;
     margin-bottom: 10px;
 }
-.single-message-container.sent {
+.chat-messages.sent {
     justify-content: flex-end;
 }
-.single-message-container.received {
+.chat-messages.received {
     justify-content: flex-start;
 }
-.single-message-container.sent >.single-message-item{
+.chat-messages.sent >.single-message-item{
     background-color: var(--message-right);
     width: 200px;
     padding: 10px;
@@ -212,7 +223,7 @@ body {
     text-align: left;
 }
 
-.single-message-container.received >.single-message-item{
+.chat-messages.received >.single-message-item{
     background-color: var(--message-left);
     width: 200px;
     padding: 10px;

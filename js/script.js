@@ -6,6 +6,7 @@ const app = createApp({
     data() {
         return {
             currentActiveUser: 0,
+            newMessageText: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -168,14 +169,33 @@ const app = createApp({
                         }
                     ],
                 }
-            ]
-            
-        }
-       
+            ],
+        };
     },
     methods :{
         selectUser(index) {
             this.currentActiveUser = index; 
+        },
+        pushTheMessage() {
+            if (this.newMessageText.trim() === '') 
+                return alert('inserisci messaggio valido');
+            
+        
+            else if (this.currentActiveUser < 0 || this.currentActiveUser >= this.contacts.length) {
+                alert('impossibile inviare messaggio. Selezionare la chat');
+                return;
+            }
+        
+            const newMessage = {
+                date: new Date().toLocaleString(),
+                message: this.newMessageText,
+                status: 'sent'
+            };
+        
+            this.contacts[this.currentActiveUser].messages.push(newMessage);
+        
+            this.newMessageText = '';
         }
+        
     }
 }).mount('#app')
