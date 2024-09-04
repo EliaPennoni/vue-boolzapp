@@ -1,24 +1,38 @@
 /* reset */
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+    --search: #f6f6f6;
+    --bg-color-up: #009688;
+    --bg-color-down: #dcdbd1;
+    --boolzap-header: #eaeaea;
+    --boolzap-footer: #f3eeea;
+    --updates-lightblue: #8edafc;
+    --active-chat: #e9ebeb;
+    --message-left: #ffffff;
+    --message-right: #d5f9ba;
+    --icons: #b1b1b1;
+    --last-message: #bbc6d4;
+  }
+
 /* main */
 
-.back-ground{
+.back-ground {
     width: 1200px;
     height: 100vh;
 
 }
 
-.container{
+.container {
     margin: 0 auto;
     margin-top: 20px;
     width: 80%;
@@ -27,36 +41,42 @@ body{
 }
 
 /* left side */
-.left-side{
+.left-side {
     width: 35%;
     height: 100%;
-    overflow-y: auto;
-    z-index: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.left.top{
+.left-top {
     position: sticky;
+    z-index: 10;
+    top: 0;
+    background-color: #009688;
 }
 
-.profile{
+.profile {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
 }
-.user-picture{
+
+.user-picture {
     display: flex;
     align-items: center;
 }
-.profile-picture{
+
+.profile-picture {
     width: 60px;
     height: 100%;
     object-fit: cover;
     padding: 5px;
     border-radius: 100px;
 }
-.alert-notifications{
+
+.alert-notifications {
     display: flex;
     width: 100%;
     padding: 5px;
@@ -69,47 +89,63 @@ body{
     padding: 5px;
 }
 
-.search-user > button {
+.search-user>button {
     margin-right: 5px;
+    cursor: pointer;
 }
 
-.search-user > input {
+.search-user>input {
     width: 100%;
     flex-grow: 1;
     padding: 5px;
 }
 
-.user-icon > i {
+.user-icon>i {
     margin-left: 10px;
+    cursor: pointer;
 }
 
-.left-bottom-contacts{
-    overflow:auto;
+.left-bottom-contacts {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
+}
+.active{
+    background-color: var(--active-chat);
+}
+.contact{
+    display: flex;
+    align-items: center;
+}
+.contact span {
+    font-size: xx-small;
 }
 
 /* right-side */
-.right-side{
+.right-side {
     width: 65%;
     height: 100%;
     overflow-y: auto;
 }
 
-.chat-header{
+.chat-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color:#009688;
     padding: 5px;
     position: sticky;
-    z-index: 1;
+    z-index: 10;
+    top: 0;
 }
 
-.chat-profile-picture{
-    display:flex;
+.chat-profile-picture {
+    display: flex;
     align-items: center;
-    
+
 }
 
-.avatar{
+.avatar {
     width: 60px;
     height: 100%;
     object-fit: cover;
@@ -117,35 +153,73 @@ body{
     border-radius: 100px;
 }
 
-.chat-tools{
+.chat-tools {
     display: flex;
     align-items: center;
 }
 
-.chat-tools > i {
+.chat-tools>i {
     margin-left: 10px;
     cursor: pointer;
 }
 
-.chat{
-    width: 100%;
-    height: 100%;
-    background-image:url(../img/mine.jpg);
-}
-
-.chat-footer{
+.chat-footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    z-index: 10;
+    bottom: 0;
 }
 
-.chat-footer input{
+.chat-footer input {
     width: 100%;
     flex-grow: 1;
     padding: 5px;
 }
 
-.chat-footer i{
+.chat-footer i {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+/* chat */
+
+.chat-container {
+    background-image: url(../img/mine.jpg);
+    height: calc(100% - 50px - 50px);
+    padding: 50px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.single-message-container {
+    display: flex;
+    margin-bottom: 10px;
+}
+.single-message-container.sent {
+    justify-content: flex-end;
+}
+.single-message-container.received {
+    justify-content: flex-start;
+}
+.single-message-container.sent >.single-message-item{
+    background-color: var(--message-right);
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.single-message-container.received >.single-message-item{
+    background-color: var(--message-left);
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message-time{
+    text-align: right;
+    font-size: x-small;
 }

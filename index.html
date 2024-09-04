@@ -42,15 +42,23 @@
                         <input type="text" name="" id="" placeholder="cerca o inizia una nuova chat">
                     </div>
                 </div>
-                <div class="left-bottom-contacts" v-for="(contact, index) in contacts" :key="index">
-                    <ul>
-                        <li>
-                            <div>
+                <div class="left-bottom-contacts">
+                    <div v-for="(contact, index) in contacts" :key="index" class="contacts-container" :class="{
+                            'active': index == currentActiveUser
+                        }">
+                        <div class="contact" @click="selectUser(index)">
+                            <div class="contact-info">
                                 <img :src="contact.avatar" alt="" class="avatar">
-                                {{ contact.name }}
                             </div>
-                        </li>
-                    </ul>
+                            <div class="div">
+                                <p class="name">{{ contact.name }}</p>
+                                <span class="last-message">Ultimo messaggio inviato</span>
+                                <span class="last-message-time">12:00</span>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- lato destro -->
@@ -61,6 +69,7 @@
                             <img src="./img/avatar_1.jpg" alt="" class="avatar">
                         </div>
                         <div class="name">nome</div>
+                        <span>Ultimo accesso oggi alle 12:00</span>
                     </div>
                     <div class="chat-tools">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -68,16 +77,28 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
-                <div class="chat">
-
+                <div class="chat-container" v-for="(message, index) in contacts[currentActiveUser].messages">
+                    <div class=" single-message-container sent">
+                    <div class="single-message-item">
+                        <div class="message-text">{{message}}</div>
+                        <div class="message-time">9.30</div>
+                    </div>
                 </div>
-                <div class="chat-footer">
-                    <a href=""><i class="fa-regular fa-face-smile"></i></a>
-                    <input type="text" placeholder="scrivi un messaggio">
-                    <a href=""><i class="fa-solid fa-microphone"></i></a>
+                <div class="single-message-container received">
+                    <div class="single-message-item">
+                        <div class="message-text">{{message}}</div>
+                        <div class="message-time">9.30</div>
+                    </div>
                 </div>
             </div>
+
+            <div class="chat-footer">
+                <a href=""><i class="fa-regular fa-face-smile"></i></a>
+                <input type="text" placeholder="scrivi un messaggio">
+                <a href=""><i class="fa-solid fa-microphone"></i></a>
+            </div>
         </div>
+    </div>
 
     </div>
 
