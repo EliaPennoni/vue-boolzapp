@@ -7,6 +7,7 @@ const app = createApp({
         return {
             currentActiveUser: 0,
             newMessageText: '',
+            searchUser:'',
             contacts: [
                 {
                     name: 'Michele',
@@ -172,30 +173,46 @@ const app = createApp({
             ],
         };
     },
-    methods :{
+    methods: {
         selectUser(index) {
-            this.currentActiveUser = index; 
+            this.currentActiveUser = index;
         },
         pushTheMessage() {
-            if (this.newMessageText.trim() === '') 
+            if (this.newMessageText.trim() === '')
                 return alert('inserisci messaggio valido');
-            
-        
             else if (this.currentActiveUser < 0 || this.currentActiveUser >= this.contacts.length) {
                 alert('impossibile inviare messaggio. Selezionare la chat');
                 return;
             }
-        
+
             const newMessage = {
                 date: new Date().toLocaleString(),
                 message: this.newMessageText,
                 status: 'sent'
             };
-        
+
             this.contacts[this.currentActiveUser].messages.push(newMessage);
-        
+
             this.newMessageText = '';
+
+            setTimeout(() => {
+                const newMessageReplay = {
+                    date: new Date().toLocaleString(),
+                    message: 'ok',
+                    status: 'received'
+                };
+                this.contacts[this.currentActiveUser].messages.push(newMessageReplay);
+            
+            }, 1000);
+        },
+        filteredContacts() {
+            return this.contacts.filter( contact => {
+                return contact.name.toLowerCase().trim().includes(
+                    this.searchUser.toLowerCase().trim()
+                ) 
+            })
         }
+        
         
     }
 }).mount('#app')

@@ -31,23 +31,23 @@
                         </div>
                     </div>
                     <div class="alert-notifications">
-                        <div class="div">
+                        <div class="fa-solid">
                             <i class="fa-solid fa-bell-slash fa-2x"></i>
                         </div>
-                        <div class="div">
+                        <div class="notifiche">
                             <h6>Ricevi notifiche di nuovi messaggi</h6>
                             <a href="">attiva notifiche desktop</a>
                         </div>
                     </div>
                     <!-- input per filtrare i contatti -->
                     <div class="search-user">
-                        <button>cerca</button>
-                        <input type="text" name="" id="" placeholder="cerca o inizia una nuova chat">
+                        <input v-model="searchUser" type="text" name="" id="" placeholder="cerca o inizia una nuova chat">
                     </div>
                 </div>
                 <!-- lista di contatti -->
                 <div class="left-bottom-contacts">
-                    <div v-for="(contact, index) in contacts" :key="index" class="contacts-container" :class="{
+                    <div v-for="(contact, index) in filteredContacts()" :key="index" class="contacts-container" 
+                        :class="{
                             'active': index == currentActiveUser
                         }">
                         <!--:class="index === currentActiveUser ? 'contacts-container active' : 'contacts-container'">-->
@@ -84,7 +84,7 @@
                 </div>
                 <div class="chat-container">
                     <div v-for="(message, index) in contacts[currentActiveUser].messages" class="chat-messages"
-                        :class="['single-message-container', message.status]">
+                        :class="message.status">
                         <div class="single-message-item">
                             <div class="message-text">{{message.message}}</div>
                             <div class="message-time">{{message.date}}</div>
