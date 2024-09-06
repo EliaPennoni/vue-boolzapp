@@ -211,6 +211,9 @@ const app = createApp({
                     this.searchUser.toLowerCase().trim()
                 ) 
             })
+        },
+        deleteComment(message, index){
+            this.contacts[this.currentActiveUser].messages.splice(index, 1)
         }
         
         

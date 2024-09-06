@@ -86,6 +86,7 @@
                     <div v-for="(message, index) in contacts[currentActiveUser].messages" class="chat-messages"
                         :class="message.status">
                         <div class="single-message-item">
+                            <i @click="deleteComment(message, index)" class="fa-regular fa-circle-xmark"></i>
                             <div class="message-text">{{message.message}}</div>
                             <div class="message-time">{{message.date}}</div>
                         </div>

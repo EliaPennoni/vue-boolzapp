@@ -258,3 +258,13 @@ body {
     text-align: right;
     font-size: x-small;
 }
+
+.single-message-item i {
+    display: none; 
+}
+
+.single-message-item:hover i {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
